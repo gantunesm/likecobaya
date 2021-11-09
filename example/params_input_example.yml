@@ -1,0 +1,352 @@
+params:
+  # Derived
+  sigma8:
+    latex: \sigma_8
+    derived: True
+  # Cosmo
+  Omega_c:
+    prior:
+      min: 0.1
+      max: 0.9                                                                                                                                                  
+    ref:
+      dist: norm
+      loc: 0.26
+      scale: 0.02
+    latex: \Omega_c
+    proposal: 0.0005
+
+  Omega_b:
+    prior:
+      min: 0.03
+      max: 0.07
+    ref:
+      dist: norm
+      loc: 0.0494
+      scale: 0.01
+    latex: \Omega_b
+    proposal: 0.0001
+
+  h:
+    prior:
+      min: 0.55
+      max: 0.91
+    ref:
+      dist: norm
+      loc: 0.67
+      scale: 0.05
+    latex: h
+    proposal: 0.001
+  n_s:
+    prior:
+      min: 0.87
+      max: 1.07
+    ref:
+      dist: norm
+      loc: 0.96
+      scale: 0.05
+    latex: n_s
+    proposal: 0.0033
+    
+  A_sE9:
+    prior:
+      min: 0.5
+      max: 5.0
+    ref:
+      dist: norm
+      loc: 2.15
+      scale: 0.2
+    latex: A_s
+    proposal: 0.01    
+
+  m_nu: 0.
+
+  #Nuisance: 
+  # Nuisance (should all start with 'input_params_prefix' = xcorr here)
+  xcorr_DESgc__0_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b1
+
+  xcorr_DESgc__1_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b2
+
+  xcorr_DESgc__2_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b3
+
+  xcorr_DESgc__3_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b4
+
+  xcorr_DESgc__4_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b5
+
+  xcorr_DESgc__5_b:
+    prior:
+      min: 0.8
+      max: 3.0
+    proposal: 0.05
+    latex: b6
+ 
+
+  xcorr_DESgc__0_mag: 0.486
+ 
+  xcorr_DESgc__1_mag: 0.46
+
+  xcorr_DESgc__2_mag: 0.744
+ 
+  xcorr_DESgc__3_mag: 0.788
+ 
+  xcorr_DESgc__4_mag: 0.712
+ 
+  xcorr_DESgc__5_mag: 0.992
+
+
+  xcorr_DESgc__0_dz:
+    prior:
+      dist: norm
+      loc: -0.009
+      scale: 0.007
+    ref:
+      dist: norm
+      loc: -0.009
+      scale: 0.007
+    proposal: 0.005
+    latex: dltz1
+
+  xcorr_DESgc__1_dz:
+    prior:
+      dist: norm
+      loc: -0.035
+      scale: 0.011
+    ref:
+      dist: norm
+      loc: -0.035
+      scale: 0.007
+    proposal: 0.005
+    latex: dltz2
+
+
+  xcorr_DESgc__2_dz:
+    prior:
+      dist: norm
+      loc: -0.005
+      scale: 0.006
+    ref:
+      dist: norm
+      loc: -0.005
+      scale: 0.006
+    proposal: 0.0005
+    latex: dltz3
+  
+
+  xcorr_DESgc__3_dz:
+    prior:
+      dist: norm
+      loc: -0.007
+      scale: 0.006
+    ref:
+      dist: norm
+      loc: -0.007
+      scale: 0.007
+    proposal: 0.006
+    latex: dltz4
+
+  xcorr_DESgc__4_dz:
+    prior:
+      dist: norm
+      loc: 0.002
+      scale: 0.007
+    ref:
+      dist: norm
+      loc: 0.002
+      scale: 0.007
+    proposal: 0.005
+    latex: dltz5
+
+
+  xcorr_DESgc__5_dz:
+    prior:
+      dist: norm
+      loc: 0.002
+      scale: 0.008
+    ref:
+      dist: norm
+      loc: 0.002
+      scale: 0.008
+    proposal: 0.005
+    latex: dltz6
+
+  xcorr_DESgc__0_sz:
+    prior:
+      dist: norm
+      loc: 0.975
+      scale: 0.062
+    proposal: 0.005
+    latex: sigz1
+
+  xcorr_DESgc__1_sz:
+    prior:
+      dist: norm
+      loc: 1.306
+      scale: 0.093
+    proposal: 0.005
+    latex: sigz2
+
+  xcorr_DESgc__2_sz:
+    prior:
+      dist: norm
+      loc: 0.870
+      scale: 0.054
+    proposal: 0.005
+    latex: sigz3
+
+  xcorr_DESgc__3_sz:
+    prior:
+      dist: norm
+      loc: 0.918
+      scale: 0.051
+    proposal: 0.005
+    latex: sigz4
+
+ 
+  xcorr_DESgc__4_sz:
+    prior:
+      dist: norm
+      loc: 1.08
+      scale: 0.067
+    proposal: 0.005
+    latex: sigz5
+
+  xcorr_DESgc__5_sz:
+    prior:
+      dist: norm
+      loc: 0.845
+      scale: 0.073
+    proposal: 0.005
+    latex: sigz6
+
+
+# CCL settings
+theory:
+  likecobaya.CCL:
+    transfer_function: boltzmann_camb
+    matter_pk: halofit
+    baryons_pk: nobaryons
+    output_params:
+      - sigma8  
+    
+ 
+
+
+# Likelihood settings
+likelihood:
+  likecobaya.likecobaya:
+    # Input cl and cov file
+    magnification: 'True'
+    pz_errors: 'shift_stretch'
+    input_params_prefix: 'xcorr'
+    input_file : sacc_all_realdata.fits
+    
+    
+    
+    tracers: 
+      - DESgc__0
+      - DESgc__1
+      - DESgc__2
+      - DESgc__3
+      - DESgc__4
+      - DESgc__5
+      - ACTcv
+    # List all 2-points that should go into the
+    # data vector
+    tracer_combinations:
+      (DESgc__0, DESgc__0):
+        lmin: 43
+        lmax: 153
+
+      (DESgc__1, DESgc__1):
+        lmin: 43
+        lmax: 228
+
+      (DESgc__2, DESgc__2):
+        lmin: 43
+        lmax: 295
+
+      (DESgc__3, DESgc__3):
+        lmin: 43
+        lmax: 351
+
+      (DESgc__4, DESgc__4):
+        lmin: 43
+        lmax: 391
+
+      (DESgc__5, DESgc__5):
+        lmin: 43
+        lmax: 421
+ 
+      # # gc -kappa-cmb
+      (DESgc__0, ACTcv):
+        lmin: 107
+        lmax: 245
+
+      (DESgc__1, ACTcv):
+        lmin: 107
+        lmax: 365
+
+      (DESgc__2, ACTcv):
+        lmin: 107
+        lmax: 472
+
+      (DESgc__3, ACTcv):
+        lmin: 107
+        lmax: 562
+
+      (DESgc__4, ACTcv):
+        lmin: 107
+        lmax: 626
+
+      (DESgc__5, ACTcv):
+        lmin: 107
+        lmax: 674
+    
+    defaults:
+      lmin: 107
+      lmax: 1000
+
+ 
+  
+sampler:
+  mcmc:
+    learn_every: 20d
+    learn_proposal_Rminus1_max_early: 50.
+    learn_proposal_Rminus1_max: 30.
+    Rminus1_stop: 0.05
+    Rminus1_cl_stop: 0.1
+    proposal_scale: 1.9
+    max_tries: 1000000
+
+
+stop_at_error: True
+debug: True
+
+output: '/example/clkg_gg_joint_cosmo_varied_'
+ 
+
+ 
